@@ -102,10 +102,6 @@
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -176,10 +172,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -198,10 +190,6 @@ Line:disabled {color: black}</string>
       <width>231</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -238,6 +226,9 @@ Line:disabled {color: black}</string>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
@@ -253,10 +244,6 @@ Line:disabled {color: black}</string>
       <width>31</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -420,10 +407,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -446,10 +429,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -468,10 +447,6 @@ Line:disabled {color: black}</string>
       <width>31</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -671,10 +646,6 @@ Line:disabled {color: black}</string>
       <height>20</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -735,10 +706,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -761,10 +728,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -784,6 +747,9 @@ Line:disabled {color: black}</string>
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
@@ -802,10 +768,6 @@ Line:disabled {color: black}</string>
       <width>151</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -829,10 +791,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -854,10 +812,6 @@ Line:disabled {color: black}</string>
       <width>171</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -881,10 +835,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -906,10 +856,6 @@ Line:disabled {color: black}</string>
       <width>20</width>
       <height>150</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -933,10 +879,6 @@ Line:disabled {color: black}</string>
       <height>180</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -958,10 +900,6 @@ Line:disabled {color: black}</string>
       <width>20</width>
       <height>110</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -985,10 +923,6 @@ Line:disabled {color: black}</string>
       <height>140</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -1007,10 +941,6 @@ Line:disabled {color: black}</string>
       <width>31</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -1033,10 +963,6 @@ Line:disabled {color: black}</string>
       <width>31</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -1119,10 +1045,6 @@ Line:disabled {color: black}</string>
       <width>31</width>
       <height>16</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -1210,10 +1132,6 @@ Line:disabled {color: black}</string>
       <height>20</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -1235,10 +1153,6 @@ Line:disabled {color: black}</string>
       <width>81</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -1319,10 +1233,6 @@ Line:disabled {color: black}</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -1341,6 +1251,9 @@ Line:disabled {color: black}</string>
       <width>31</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -1376,10 +1289,6 @@ Line:disabled {color: black}</string>
       <width>20</width>
       <height>20</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -1463,10 +1372,6 @@ Line:disabled {color: black}</string>
       <height>20</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">Line {color: red}
-Line:disabled {color: black}</string>
-    </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
@@ -1528,6 +1433,56 @@ Line:disabled {color: black}</string>
      <string>Safe Setting</string>
     </property>
    </widget>
+   <zorder>conn_amp_direct_14</zorder>
+   <zorder>conn_amp_direct_15</zorder>
+   <zorder>conn_amp_direct_16</zorder>
+   <zorder>conn_amp_direct_13</zorder>
+   <zorder>conn_amp_lf</zorder>
+   <zorder>conn_amp_hf</zorder>
+   <zorder>conn_amp_direct</zorder>
+   <zorder>conn_amp_direct_2</zorder>
+   <zorder>conn_amp_direct_3</zorder>
+   <zorder>conn_amp_direct_4</zorder>
+   <zorder>conn_amp_direct_5</zorder>
+   <zorder>conn_amp_direct_6</zorder>
+   <zorder>conn_amp_direct_9</zorder>
+   <zorder>conn_amp_direct_10</zorder>
+   <zorder>conn_amp_direct_11</zorder>
+   <zorder>conn_amp_direct_12</zorder>
+   <zorder>conn_amp_direct_17</zorder>
+   <zorder>conn_amp_direct_18</zorder>
+   <zorder>conn_amp_direct_7</zorder>
+   <zorder>conn_amp_direct_8</zorder>
+   <zorder>conn_amp_direct_19</zorder>
+   <zorder>conn_amp_direct_20</zorder>
+   <zorder>conn_amp_direct_21</zorder>
+   <zorder>conn_amp_direct_22</zorder>
+   <zorder>conn_amp_direct_23</zorder>
+   <zorder>conn_amp_direct_25</zorder>
+   <zorder>frame</zorder>
+   <zorder>frame_2</zorder>
+   <zorder>frame_3</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>groupBox_2</zorder>
+   <zorder>groupBox_3</zorder>
+   <zorder>groupBox_6</zorder>
+   <zorder>groupBox_8</zorder>
+   <zorder>groupBox_10</zorder>
+   <zorder>groupBox_11</zorder>
+   <zorder>groupBox_13</zorder>
+   <zorder>groupBox_15</zorder>
+   <zorder>groupBox_17</zorder>
+   <zorder>groupBox_18</zorder>
+   <zorder>groupBox_19</zorder>
+   <zorder>groupBox_20</zorder>
+   <zorder>groupBox_27</zorder>
+   <zorder>groupBox_31</zorder>
+   <zorder>groupBox_29</zorder>
+   <zorder>groupBox_30</zorder>
+   <zorder>groupBox_33</zorder>
+   <zorder>groupBox_34</zorder>
+   <zorder>groupBox_35</zorder>
+   <zorder>pushButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'RCSwitch.ui'
 #
-# Created: Mon May 17 11:33:59 2010
+# Created: Wed May 19 10:02:50 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -45,8 +45,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_lf = QtGui.QFrame(self.centralwidget)
         self.conn_amp_lf.setEnabled(False)
         self.conn_amp_lf.setGeometry(QtCore.QRect(170, 230, 231, 16))
-        self.conn_amp_lf.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_lf.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_lf.setLineWidth(2)
         self.conn_amp_lf.setFrameShape(QtGui.QFrame.HLine)
@@ -66,16 +64,12 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_hf = QtGui.QFrame(self.centralwidget)
         self.conn_amp_hf.setEnabled(False)
         self.conn_amp_hf.setGeometry(QtCore.QRect(170, 270, 231, 16))
-        self.conn_amp_hf.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_hf.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_hf.setLineWidth(2)
         self.conn_amp_hf.setFrameShape(QtGui.QFrame.HLine)
         self.conn_amp_hf.setObjectName("conn_amp_hf")
         self.conn_amp_direct = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct.setGeometry(QtCore.QRect(170, 300, 231, 16))
-        self.conn_amp_direct.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct.setLineWidth(2)
         self.conn_amp_direct.setFrameShape(QtGui.QFrame.HLine)
@@ -86,13 +80,12 @@ class Ui_ReverbChamberRelaisController(object):
         self.groupBox_3.setObjectName("groupBox_3")
         self.frame = QtGui.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(400, 220, 31, 101))
+        self.frame.setStyleSheet("color: black;")
         self.frame.setFrameShape(QtGui.QFrame.Box)
         self.frame.setFrameShadow(QtGui.QFrame.Plain)
         self.frame.setObjectName("frame")
         self.conn_amp_direct_2 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_2.setGeometry(QtCore.QRect(430, 270, 31, 16))
-        self.conn_amp_direct_2.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_2.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_2.setLineWidth(2)
         self.conn_amp_direct_2.setFrameShape(QtGui.QFrame.HLine)
@@ -143,8 +136,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_3 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_3.setEnabled(False)
         self.conn_amp_direct_3.setGeometry(QtCore.QRect(570, 230, 31, 16))
-        self.conn_amp_direct_3.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_3.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_3.setLineWidth(2)
         self.conn_amp_direct_3.setFrameShape(QtGui.QFrame.HLine)
@@ -152,16 +143,12 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_4 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_4.setEnabled(False)
         self.conn_amp_direct_4.setGeometry(QtCore.QRect(570, 264, 31, 16))
-        self.conn_amp_direct_4.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_4.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_4.setLineWidth(2)
         self.conn_amp_direct_4.setFrameShape(QtGui.QFrame.HLine)
         self.conn_amp_direct_4.setObjectName("conn_amp_direct_4")
         self.conn_amp_direct_5 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_5.setGeometry(QtCore.QRect(570, 300, 31, 16))
-        self.conn_amp_direct_5.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_5.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_5.setLineWidth(2)
         self.conn_amp_direct_5.setFrameShape(QtGui.QFrame.HLine)
@@ -213,8 +200,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.groupBox_17.setObjectName("groupBox_17")
         self.conn_amp_direct_6 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_6.setGeometry(QtCore.QRect(40, 260, 21, 20))
-        self.conn_amp_direct_6.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_6.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_6.setLineWidth(2)
         self.conn_amp_direct_6.setFrameShape(QtGui.QFrame.HLine)
@@ -232,8 +217,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_7 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_7.setEnabled(False)
         self.conn_amp_direct_7.setGeometry(QtCore.QRect(70, 120, 31, 16))
-        self.conn_amp_direct_7.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_7.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_7.setLineWidth(2)
         self.conn_amp_direct_7.setFrameShape(QtGui.QFrame.HLine)
@@ -241,22 +224,19 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_8 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_8.setEnabled(False)
         self.conn_amp_direct_8.setGeometry(QtCore.QRect(70, 80, 31, 16))
-        self.conn_amp_direct_8.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_8.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_8.setLineWidth(2)
         self.conn_amp_direct_8.setFrameShape(QtGui.QFrame.HLine)
         self.conn_amp_direct_8.setObjectName("conn_amp_direct_8")
         self.frame_2 = QtGui.QFrame(self.centralwidget)
         self.frame_2.setGeometry(QtCore.QRect(100, 70, 31, 71))
+        self.frame_2.setStyleSheet("color: black;")
         self.frame_2.setFrameShape(QtGui.QFrame.Box)
         self.frame_2.setFrameShadow(QtGui.QFrame.Plain)
         self.frame_2.setObjectName("frame_2")
         self.conn_amp_direct_9 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_9.setEnabled(False)
         self.conn_amp_direct_9.setGeometry(QtCore.QRect(130, 70, 151, 16))
-        self.conn_amp_direct_9.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_9.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_9.setLineWidth(2)
         self.conn_amp_direct_9.setFrameShape(QtGui.QFrame.HLine)
@@ -264,8 +244,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_10 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_10.setEnabled(False)
         self.conn_amp_direct_10.setGeometry(QtCore.QRect(130, 80, 211, 16))
-        self.conn_amp_direct_10.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_10.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_10.setLineWidth(2)
         self.conn_amp_direct_10.setFrameShape(QtGui.QFrame.HLine)
@@ -273,8 +251,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_11 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_11.setEnabled(False)
         self.conn_amp_direct_11.setGeometry(QtCore.QRect(130, 110, 171, 16))
-        self.conn_amp_direct_11.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_11.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_11.setLineWidth(2)
         self.conn_amp_direct_11.setFrameShape(QtGui.QFrame.HLine)
@@ -282,8 +258,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_12 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_12.setEnabled(False)
         self.conn_amp_direct_12.setGeometry(QtCore.QRect(130, 120, 230, 16))
-        self.conn_amp_direct_12.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_12.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_12.setLineWidth(2)
         self.conn_amp_direct_12.setFrameShape(QtGui.QFrame.HLine)
@@ -291,8 +265,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_13 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_13.setEnabled(False)
         self.conn_amp_direct_13.setGeometry(QtCore.QRect(270, 77, 20, 150))
-        self.conn_amp_direct_13.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_13.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_13.setLineWidth(2)
         self.conn_amp_direct_13.setFrameShape(QtGui.QFrame.VLine)
@@ -300,8 +272,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_14 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_14.setEnabled(False)
         self.conn_amp_direct_14.setGeometry(QtCore.QRect(330, 88, 20, 180))
-        self.conn_amp_direct_14.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_14.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_14.setLineWidth(2)
         self.conn_amp_direct_14.setFrameShape(QtGui.QFrame.VLine)
@@ -309,8 +279,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_15 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_15.setEnabled(False)
         self.conn_amp_direct_15.setGeometry(QtCore.QRect(290, 118, 20, 110))
-        self.conn_amp_direct_15.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_15.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_15.setLineWidth(2)
         self.conn_amp_direct_15.setFrameShape(QtGui.QFrame.VLine)
@@ -318,16 +286,12 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_16 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_16.setEnabled(False)
         self.conn_amp_direct_16.setGeometry(QtCore.QRect(350, 128, 20, 140))
-        self.conn_amp_direct_16.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_16.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_16.setLineWidth(2)
         self.conn_amp_direct_16.setFrameShape(QtGui.QFrame.VLine)
         self.conn_amp_direct_16.setObjectName("conn_amp_direct_16")
         self.conn_amp_direct_17 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_17.setGeometry(QtCore.QRect(430, 410, 31, 16))
-        self.conn_amp_direct_17.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_17.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_17.setLineWidth(2)
         self.conn_amp_direct_17.setFrameShape(QtGui.QFrame.HLine)
@@ -335,8 +299,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_18 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_18.setEnabled(True)
         self.conn_amp_direct_18.setGeometry(QtCore.QRect(570, 390, 31, 16))
-        self.conn_amp_direct_18.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_18.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_18.setLineWidth(2)
         self.conn_amp_direct_18.setFrameShape(QtGui.QFrame.HLine)
@@ -365,8 +327,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_19 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_19.setEnabled(False)
         self.conn_amp_direct_19.setGeometry(QtCore.QRect(570, 430, 31, 16))
-        self.conn_amp_direct_19.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_19.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_19.setLineWidth(2)
         self.conn_amp_direct_19.setFrameShape(QtGui.QFrame.HLine)
@@ -390,8 +350,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_20 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_20.setEnabled(True)
         self.conn_amp_direct_20.setGeometry(QtCore.QRect(240, 390, 81, 20))
-        self.conn_amp_direct_20.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_20.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_20.setLineWidth(2)
         self.conn_amp_direct_20.setFrameShape(QtGui.QFrame.HLine)
@@ -399,8 +357,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_21 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_21.setEnabled(False)
         self.conn_amp_direct_21.setGeometry(QtCore.QRect(240, 420, 81, 20))
-        self.conn_amp_direct_21.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_21.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_21.setLineWidth(2)
         self.conn_amp_direct_21.setFrameShape(QtGui.QFrame.HLine)
@@ -428,14 +384,13 @@ class Ui_ReverbChamberRelaisController(object):
         self.verticalLayout_4.addWidget(self.AttSwitch_Off)
         self.conn_amp_direct_22 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_22.setGeometry(QtCore.QRect(180, 410, 31, 16))
-        self.conn_amp_direct_22.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_22.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_22.setLineWidth(2)
         self.conn_amp_direct_22.setFrameShape(QtGui.QFrame.HLine)
         self.conn_amp_direct_22.setObjectName("conn_amp_direct_22")
         self.frame_3 = QtGui.QFrame(self.centralwidget)
         self.frame_3.setGeometry(QtCore.QRect(210, 390, 31, 51))
+        self.frame_3.setStyleSheet("color: black;")
         self.frame_3.setFrameShape(QtGui.QFrame.Box)
         self.frame_3.setFrameShadow(QtGui.QFrame.Plain)
         self.frame_3.setObjectName("frame_3")
@@ -446,8 +401,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_23 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_23.setEnabled(False)
         self.conn_amp_direct_23.setGeometry(QtCore.QRect(81, 420, 20, 20))
-        self.conn_amp_direct_23.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_23.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_23.setLineWidth(2)
         self.conn_amp_direct_23.setFrameShape(QtGui.QFrame.HLine)
@@ -476,8 +429,6 @@ class Ui_ReverbChamberRelaisController(object):
         self.conn_amp_direct_25 = QtGui.QFrame(self.centralwidget)
         self.conn_amp_direct_25.setEnabled(True)
         self.conn_amp_direct_25.setGeometry(QtCore.QRect(80, 390, 21, 20))
-        self.conn_amp_direct_25.setStyleSheet("Line {color: red}\n"
-"Line:disabled {color: black}")
         self.conn_amp_direct_25.setFrameShadow(QtGui.QFrame.Plain)
         self.conn_amp_direct_25.setLineWidth(2)
         self.conn_amp_direct_25.setFrameShape(QtGui.QFrame.HLine)

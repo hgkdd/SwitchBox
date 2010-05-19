@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
-import visa
+try:
+    import visa
+    virtual=False
+except ImportError:
+    virtual=True
 
 from PyQt4 import QtCore, QtGui
 from RCSwitch import Ui_ReverbChamberRelaisController as ui
@@ -17,9 +21,13 @@ class SWController(QtGui.QMainWindow):
         self.RxPM=True
         QtGui.QMainWindow.__init__(self)
         self.ui=ui()
+        self.setStyleSheet ("""QFrame {color: red;}
+                                QFrame:disabled {color: black;}""")
         self.ui.setupUi(self)
     
     def ask(self, cmd):
+        if not self.sw:
+            return None
         ans=self.sw.ask(cmd)
         print "CMD: %s\nANS: %s"%(cmd, ans)
         rp=[int(ans[4*i+3:4*i+4]) for i in range(6)]
@@ -156,8 +164,14 @@ class SWController(QtGui.QMainWindow):
         
         
 def main():
-    sw=visa.instrument('GPIB::2', term_chars = visa.LF)
-    
+    if not virtual:
+        try:
+            sw=visa.instrument('GPIB::2', term_chars = visa.LF)
+        except:
+            sw=None
+    else:
+        sw=None
+
     app = QtGui.QApplication(sys.argv)
     window = SWController(sw)
     window.show()
