@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Reverb Chamber Matrix Switch Controller </string>
   </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
@@ -1575,8 +1578,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>129</x>
-     <y>251</y>
+     <x>130</x>
+     <y>248</y>
     </hint>
     <hint type="destinationlabel">
      <x>277</x>
@@ -1745,38 +1748,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>AttSwitch_On</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>conn_amp_direct_20</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>354</x>
-     <y>395</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>309</x>
-     <y>401</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>AttSwitch_Off</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>conn_amp_direct_21</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>386</x>
-     <y>430</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>297</x>
-     <y>436</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>RxSwitch_PM</sender>
    <signal>toggled(bool)</signal>
    <receiver>conn_amp_direct_25</receiver>
@@ -1911,8 +1882,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>122</x>
-     <y>265</y>
+     <x>123</x>
+     <y>282</y>
     </hint>
     <hint type="destinationlabel">
      <x>89</x>

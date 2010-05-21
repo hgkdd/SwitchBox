@@ -9,7 +9,6 @@ except ImportError:
 from PyQt4 import QtCore, QtGui
 from RCSwitch import Ui_ReverbChamberRelaisController as ui
 
-
 class SWController(QtGui.QMainWindow):
     def __init__(self, sw):
         self.sw=sw
@@ -114,15 +113,42 @@ class SWController(QtGui.QMainWindow):
             print "Switch 3: HF"
         self._rx_logic()
     def on_AttSwitch_On_toggled(self, state):
+        if (not state) and self.RxLF: # this may be dangerous
+            message = QtGui.QMessageBox(self)
+            message.setStyleSheet('color: black')
+            message.setText("""
+You are going to remove the attenuation from the
+RX path at low frequencies.
+
+This may damage your power meter or receiver!
+
+Do you really want to remove the attenuation?
+                            """)
+            message.setWindowTitle('Warning')
+            message.setIcon(QtGui.QMessageBox.Question)
+            message.addButton('No', QtGui.QMessageBox.AcceptRole)
+            message.addButton('Yes', QtGui.QMessageBox.RejectRole)
+            message.exec_()
+            response = message.clickedButton().text()
+            if response != 'Yes':
+                self.ui.AttSwitch_On.toggle()
+                return
         self.RxAtt=state
         if state:
+            self.ui.conn_amp_direct_20.setEnabled(True)
+            self.ui.conn_amp_direct_21.setEnabled(False)
             print "Switch 4: 20 dB"
-        self._rx_logic()
-    def on_AttSwitch_Off_toggled(self, state):
-        self.RxAtt=not(state)
-        if state:
+        else:
+            self.ui.conn_amp_direct_20.setEnabled(False)
+            self.ui.conn_amp_direct_21.setEnabled(True)
             print "Switch 4: 0 dB"
+        
         self._rx_logic()
+#    def on_AttSwitch_Off_toggled(self, state):
+#        self.RxAtt=not(state)
+#        if state:
+#            print "Switch 4: 0 dB"
+#        self._rx_logic()
     def on_RxSwitch_PM_toggled(self, state):
         self.RxPM=state
         if state:
