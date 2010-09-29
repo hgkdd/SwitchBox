@@ -14,7 +14,7 @@ class SWController(QtGui.QMainWindow):
         self.sw=sw
         print sw
         #save settings
-        self.ask('R1P4R2P0')
+        self.ask('R1P4R2P0R3P1R4P0')
         QtGui.QMainWindow.__init__(self)
         self.ui=ui()
         self.setStyleSheet ("""QFrame {color: red;}
@@ -68,6 +68,22 @@ class SWController(QtGui.QMainWindow):
         if state:
             print "Switch 2: Term"
             ans=self.ask('R2P0')
+    def on_RxSwitch_GTEM_toggled(self, state):
+        if state:
+            print "Switch 3: GTEM"
+            ans=self.ask('R3P0')
+    def on_RxSwitch_Term_toggled(self, state):
+        if state:
+            print "Switch 3: TERM"
+            ans=self.ask('R3P1')
+    def on_RxSwitch_30M_toggled(self, state):
+        if state:
+            print "Switch 4: 30M"
+            ans=self.ask('R4P0')
+    def on_RxSwitch_3G_toggled(self, state):
+        if state:
+            print "Switch 4: 3G"
+            ans=self.ask('R4P1')
         
 def main():
     if not virtual:
