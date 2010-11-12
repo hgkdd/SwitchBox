@@ -12,7 +12,7 @@ from GTEMSwitch import Ui_GTEMRelaisController as ui
 class SWController(QtGui.QMainWindow):
     def __init__(self, sw):
         self.sw=sw
-        print sw
+        #print sw
         #save settings
         self.ask('R1P4R2P0R3P1R4P0')
         QtGui.QMainWindow.__init__(self)
@@ -20,15 +20,48 @@ class SWController(QtGui.QMainWindow):
         self.setStyleSheet ("""QFrame {color: red;}
                                 QFrame:disabled {color: black;}""")
         self.ui.setupUi(self)
-    
+        self.ctimer = QtCore.QTimer()
+        self.ctimer.start(500)
+        QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.doUpdate)
+
+    def doUpdate(self):
+        # print 'Pling'
+        s=self.sw.ask('')
+        #print s
+        rdict=dict(zip(map(int, s[1::4]), map(int, s[3::4]))) #keys: relais, value: position
+
+        if rdict[1]==1: # LF
+            self.ui.sgSwitch_LF.click()
+        elif rdict[1]==2: # HF
+            self.ui.sgSwitch_HF.click()
+        elif rdict[1]==4: # HF
+            self.ui.sgSwitch_Direct.click()
+
+        if rdict[2]==0: # TERM
+            self.ui.TxSwitch_Term.click()
+        elif rdict[2]==1: # GTEM
+            self.ui.TxSwitch_GTEM.click()
+
+        if rdict[3]==0: # GTEM
+            self.ui.RxSwitch_GTEM.click()
+        elif rdict[3]==1: # TERM
+            self.ui.RxSwitch_Term.click()
+
+        if rdict[4]==0: # 30M
+            self.ui.RxSwitch_30M.click()
+        elif rdict[4]==1: # 3G
+            self.ui.RxSwitch_3G.click()
+        
+        
+        
     def ask(self, cmd):
         if not self.sw:
             return None
         ans=self.sw.ask(cmd)
-        print "CMD: %s\nANS: %s"%(cmd, ans)
+        #print "CMD: %s\nANS: %s"%(cmd, ans)
         rp=[int(ans[4*i+3:4*i+4]) for i in range(4)]
         rp.insert(0, None) # rp[1]=relais_position of R1 etc
-        print rp[1:]
+        #print rp[1:]
         # K1, K2, K3
         K1='C-%d'%(rp[1])
         K2='C-%d'%(rp[1])
@@ -45,44 +78,44 @@ class SWController(QtGui.QMainWindow):
             K5=K6='invalid'
         for i in range(1,7):
             s=eval('K%d'%i)
-            print "K%d: %s"%(i, s)
+            #print "K%d: %s"%(i, s)
         return ans
     
     def on_sgSwitch_Direct_toggled(self, state):
         if state:
-            print "Switch 1: direct"
+            #print "Switch 1: direct"
             ans=self.ask('R1P4')
     def on_sgSwitch_LF_toggled(self, state):
         if state:
-            print "Switch 1: LF"
+            #print "Switch 1: LF"
             ans=self.ask('R1P1')
     def on_sgSwitch_HF_toggled(self, state):
         if state:
-            print "Switch 1: HF"
+            #print "Switch 1: HF"
             ans=self.ask('R1P2')
     def on_TxSwitch_GTEM_toggled(self, state):
         if state:
-            print "Switch 2: GTEM"
+            #print "Switch 2: GTEM"
             ans=self.ask('R2P1')
     def on_TxSwitch_Term_toggled(self, state):
         if state:
-            print "Switch 2: Term"
+            #print "Switch 2: Term"
             ans=self.ask('R2P0')
     def on_RxSwitch_GTEM_toggled(self, state):
         if state:
-            print "Switch 3: GTEM"
+            #print "Switch 3: GTEM"
             ans=self.ask('R3P0')
     def on_RxSwitch_Term_toggled(self, state):
         if state:
-            print "Switch 3: TERM"
+            #print "Switch 3: TERM"
             ans=self.ask('R3P1')
     def on_RxSwitch_30M_toggled(self, state):
         if state:
-            print "Switch 4: 30M"
+            #print "Switch 4: 30M"
             ans=self.ask('R4P0')
     def on_RxSwitch_3G_toggled(self, state):
         if state:
-            print "Switch 4: 3G"
+            #print "Switch 4: 3G"
             ans=self.ask('R4P1')
         
 def main():
