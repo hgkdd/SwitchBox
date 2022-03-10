@@ -1,36 +1,39 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys
 try:
-    import visa
+    import pyvisa
     virtual=False
 except ImportError:
     virtual=True
 
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 from RCSwitch import Ui_ReverbChamberRelaisController as ui
 
-class SWController(QtGui.QMainWindow):
+class SWController(QtWidgets.QMainWindow):
     def __init__(self, sw):
+        super(SWController, self).__init__()
         self.sw=sw
         #print sw
         #save settings
-        self.ask('R1P0R2P0R3P1R4P1R5P0R6P0')
+        self.query('R1P0R2P0R3P1R4P1R5P0R6P0')
         self.RxLF=True
         self.RxAtt=True
         self.RxPM=True
         self.monitor=False
-        QtGui.QMainWindow.__init__(self)
+        QtWidgets.QMainWindow.__init__(self)
         self.ui=ui()
         self.setStyleSheet ("""QFrame {color: red;}
                                 QFrame:disabled {color: black;}""")
         self.ui.setupUi(self)
         self.ctimer = QtCore.QTimer()
         self.ctimer.start(500)
-        QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.doUpdate)
+        #QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.doUpdate)
+        self.ctimer.timeout.connect(self.doUpdate)
 
     def doUpdate(self):
         # print 'Pling'
-        s=self.sw.ask('')
+        s=self.sw.query('')
         self.monitor=True
         #print s
         rdict=dict(zip(map(int, s[1::4]), map(int, s[3::4]))) #keys: relais, value: position
@@ -65,7 +68,7 @@ class SWController(QtGui.QMainWindow):
                 self.ui.RxSwitch_Rec.click()
                 self.ui.AttSwitch_Off.click()
             else:
-                print "'unvisible' switch: %r"%rdict
+                print("'unvisible' switch: %r"%rdict)
         elif rdict[3]==1: # LF
             self.ui.RxSwitch_LF.click()
             if s456 == '100':
@@ -81,14 +84,14 @@ class SWController(QtGui.QMainWindow):
                 self.ui.RxSwitch_Rec.click()
                 self.ui.AttSwitch_Off.click()
             else:
-                print "'unvisible' switch: %r"%rdict
+                print("'unvisible' switch: %r"%rdict)
         self.monitor=False
         
     
-    def ask(self, cmd):
+    def query(self, cmd):
         if not self.sw:
             return None
-        ans=self.sw.ask(cmd)
+        ans=self.sw.query(cmd)
         # print "CMD: %s\nANS: %s"%(cmd, ans)
         # rp=[int(ans[4*i+3:4*i+4]) for i in range(6)]
         # rp.insert(0, None) # rp[1]=relais_position of R1 etc
@@ -142,27 +145,27 @@ class SWController(QtGui.QMainWindow):
     def on_sgSwitch_Direct_toggled(self, state):
         if state:
             #print "Switch 1: direct"
-            ans=self.ask('R1P0')
+            ans=self.query('R1P0')
     def on_sgSwitch_LF_toggled(self, state):
         if state:
             #print "Switch 1: LF"
-            ans=self.ask('R1P1')
+            ans=self.query('R1P1')
     def on_sgSwitch_HF_toggled(self, state):
         if state:
             #print "Switch 1: HF"
-            ans=self.ask('R1P2')
+            ans=self.query('R1P2')
     def on_TxSwitch_LF_toggled(self, state):
         if state:
             #print "Switch 2: LF"
-            ans=self.ask('R2P1')
+            ans=self.query('R2P1')
     def on_TxSwitch_HF_toggled(self, state):
         if state:
             #print "Switch 2: HF"
-            ans=self.ask('R2P2')
+            ans=self.query('R2P2')
     def on_TxSwitch_Term_toggled(self, state):
         if state:
             #print "Switch 2: Term"
-            ans=self.ask('R2P0')
+            ans=self.query('R2P0')
     def on_RxSwitch_LF_toggled(self, state):
         self.RxLF=state
         # if state:
@@ -176,7 +179,7 @@ class SWController(QtGui.QMainWindow):
     def on_AttSwitch_On_toggled(self, state):
         if not self.monitor:
             if (not state) and self.RxLF: # this may be dangerous
-                message = QtGui.QMessageBox(self)
+                message = QtWidgets.QMessageBox(self)
                 message.setStyleSheet('color: black')
                 message.setText("""
 You are going to remove the attenuation from the
@@ -187,9 +190,9 @@ This may damage your power meter or receiver!
 Do you really want to remove the attenuation?
                                 """)
                 message.setWindowTitle('Warning')
-                message.setIcon(QtGui.QMessageBox.Question)
-                message.addButton('No', QtGui.QMessageBox.AcceptRole)
-                message.addButton('Yes', QtGui.QMessageBox.RejectRole)
+                message.setIcon(QtWidgets.QMessageBox.Question)
+                message.addButton('No', QtWidgets.QMessageBox.AcceptRole)
+                message.addButton('Yes', QtWidgets.QMessageBox.RejectRole)
                 message.exec_()
                 response = message.clickedButton().text()
                 if response != 'Yes':
@@ -249,19 +252,22 @@ Do you really want to remove the attenuation?
                 else:
                     cmd='R3P0R4P1R5P0R6P1'                        
         if not self.monitor:
-            self.ask(cmd)
+            self.query(cmd)
         
         
 def main():
     if not virtual:
         try:
-            sw=visa.instrument('GPIB::2', term_chars = visa.LF)
+            rm=pyvisa.ResourceManager('@py')
+            sw=rm.open_resource('GPIB::2')
+            sw.read_termination = '\n'
+            sw.write_termination = '\n'
         except:
             sw=None
     else:
         sw=None
 
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     window = SWController(sw)
     window.show()
     sys.exit(app.exec_())
