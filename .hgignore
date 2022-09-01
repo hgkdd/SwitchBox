@@ -2,3 +2,5 @@ syntax: glob
 *.pyc
 # Default ignored files
 .idea/workspace.xml
+.idea/*
+venv/*
