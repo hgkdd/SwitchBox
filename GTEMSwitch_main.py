@@ -31,7 +31,7 @@ class SWController(QtWidgets.QMainWindow):
     def doUpdate(self):
         # print 'Pling'
         s = self.sw.query('')
-        # print s
+        # print(s)
         rdict = dict(zip(map(int, s[1::4]), map(int, s[3::4])))  # keys: relais, value: position
 
         if rdict[1] == 1:  # LF
@@ -101,6 +101,7 @@ class SWController(QtWidgets.QMainWindow):
     def on_TxSwitch_GTEM_toggled(self, state):
         if state:
             # print "Switch 2: GTEM"
+            self.ui.RxSwitch_Term.click()
             ans = self.query('R2P1')
 
     def on_TxSwitch_Term_toggled(self, state):
@@ -111,6 +112,7 @@ class SWController(QtWidgets.QMainWindow):
     def on_RxSwitch_GTEM_toggled(self, state):
         if state:
             # print "Switch 3: GTEM"
+            self.ui.TxSwitch_Term.click()
             ans = self.query('R3P0')
 
     def on_RxSwitch_Term_toggled(self, state):
