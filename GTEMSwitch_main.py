@@ -31,7 +31,7 @@ class SWController(QtWidgets.QMainWindow):
     def doUpdate(self):
         # print 'Pling'
         s = self.sw.query('')
-        print(s)
+        # print(s)
         rdict = dict(zip(map(int, s[1::4]), map(int, s[3::4])))  # keys: relais, value: position
 
         if rdict[1] == 1:  # LF
