@@ -83,10 +83,12 @@ class SWController(QMainWindow):
         # save settings
         self.query(self._safe)
         self.query('R3P1R4P1')   # LFrx, Amp, PM
-        self.RxLF=True
-        self.RxAtt=True
-        self.RxPM=True
-        self.monitor=False
+        self.RxLF = True
+        self.RxAtt = True
+        self.RxPM = True
+        # self monitor is set to True during do_update (QTimer loop)
+        # so we can handle, when another program changed relais states
+        self.monitor = False
         self.setStyleSheet ("""QFrame {color: red;}
                                 QFrame:disabled {color: black;}""")
         self.ui = Ui_ReverbChamberRelaisController()
@@ -95,6 +97,23 @@ class SWController(QMainWindow):
         self.ctimer.start(500)
         #QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.doUpdate)
         self.ctimer.timeout.connect(self.doUpdate)
+
+        self.ui.sgSwitch_LF.toggled.connect(self.on_sgSwitch_LF_toggled)
+        self.ui.sgSwitch_HF.toggled.connect(self.on_sgSwitch_HF_toggled)
+        self.ui.sgSwitch_Direct.toggled.connect(self.on_sgSwitch_Direct_toggled)
+
+        self.ui.TxSwitch_LF.toggled.connect(self.on_TxSwitch_LF_toggled)
+        self.ui.TxSwitch_HF.toggled.connect(self.on_TxSwitch_HF_toggled)
+        self.ui.TxSwitch_Term.toggled.connect(self.on_TxSwitch_Term_toggled)
+
+        self.ui.RxSwitch_LF.toggled.connect(self.on_RxSwitch_LF_toggled)
+        self.ui.RxSwitch_HF.toggled.connect(self.on_RxSwitch_HF_toggled)
+
+        self.ui.AttSwitch_On.toggled.connect(self.on_AttSwitch_On_toggled)
+        self.ui.AttSwitch_Off.toggled.connect(self.on_AttSwitch_Off_toggled)
+
+        self.ui.RxSwitch_Rec.toggled.connect(self.on_RxSwitch_Rec_toggled)
+        self.ui.RxSwitch_PM.toggled.connect(self.on_RxSwitch_PM_toggled)
 
     def doUpdate(self):
         # print 'Pling'
@@ -204,7 +223,7 @@ class SWController(QMainWindow):
             self.ui.AttSwitch_On.click()
         else:
             print("'invisible' switch: %r"%rdict)
-        self.monitor=False
+        self.monitor = False
 
     def query(self, cmd):
         if not self.sw:
@@ -302,9 +321,9 @@ class SWController(QMainWindow):
             #print "Switch 3: HF"
         self._rx_logic()
 
-    def on_AttSwitch_On_toggled(self, state):
-        if not self.monitor:
-            if (not state) and self.RxLF: # this may be dangerous
+    def on_AttSwitch_Off_toggled(self, state):
+        if not self.monitor:  # we triggerd the change
+            if state and self.RxLF: # this may be dangerous
                 message = QMessageBox(self)
                 message.setStyleSheet('color: black')
                 message.setText("""
@@ -322,24 +341,21 @@ Do you really want to remove the attenuation?
                 message.exec_()
                 response = message.clickedButton().text()
                 if response != 'Yes':
-                    self.ui.AttSwitch_On.toggle()
+                    self.ui.AttSwitch_On.toggle()  # switch back
                     return
-        self.RxAtt = state
-        if state:
-            self.ui.conn_amp_direct_20.setEnabled(True)
-            self.ui.conn_amp_direct_21.setEnabled(False)
-            #print "Switch 4: 20 dB"
-        else:
-            self.ui.conn_amp_direct_20.setEnabled(False)
-            self.ui.conn_amp_direct_21.setEnabled(True)
-            #print "Switch 4: 0 dB"
-        
+        self.RxAtt = not state
+        self.ui.conn_amp_direct_20.setEnabled(not state)
+        self.ui.conn_amp_direct_21.setEnabled(state)
+        self.ui.AttSwitch_On.setChecked(not state)
+
         self._rx_logic()
-#    def on_AttSwitch_Off_toggled(self, state):
-#        self.RxAtt=not(state)
-#        if state:
-#            print "Switch 4: 0 dB"
-#        self._rx_logic()
+
+    def on_AttSwitch_On_toggled(self, state):
+        self.RxAtt = state
+        self.ui.conn_amp_direct_20.setEnabled(state)
+        self.ui.conn_amp_direct_21.setEnabled(not state)
+        self.ui.AttSwitch_Off.setChecked(not state)
+        self._rx_logic()
 
     def on_RxSwitch_PM_toggled(self, state):
         self.RxPM = state
