@@ -8,22 +8,23 @@ try:
 except ImportError:
     virtual = True
 
-from PyQt5 import QtCore, QtWidgets
-from GTEMSwitch import Ui_GTEMRelaisController as ui
+from PySide6.QtCore import QTimer
+from PySide6.QtWidgets import QMainWindow, QApplication
+from GTEMSwitch import Ui_GTEMRelaisController
 
 
-class SWController(QtWidgets.QMainWindow):
+class SWController(QMainWindow):
     def __init__(self, sw):
+        super(SWController, self).__init__()
         self.sw = sw
         # print sw
         # save settings
         self.query('R1P4R2P0R3P1R4P0')
-        QtWidgets.QMainWindow.__init__(self)
-        self.ui = ui()
         self.setStyleSheet("""QFrame {color: red;}
                                 QFrame:disabled {color: black;}""")
+        self.ui = Ui_GTEMRelaisController()
         self.ui.setupUi(self)
-        self.ctimer = QtCore.QTimer()
+        self.ctimer = QTimer()
         self.ctimer.start(500)
         # QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.doUpdate)
         self.ctimer.timeout.connect(self.doUpdate)
@@ -143,10 +144,14 @@ def main():
     else:
         sw = None
 
-    app = QtWidgets.QApplication(sys.argv)
+    if not QApplication.instance():
+        app = QApplication(sys.argv)
+    else:
+        app = QApplication.instance()
+
     window = SWController(sw)
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 
 if __name__ == "__main__":

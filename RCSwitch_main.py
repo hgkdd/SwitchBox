@@ -7,13 +7,17 @@ try:
 except ImportError:
     virtual=True
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from RCSwitch import Ui_ReverbChamberRelaisController as ui
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PySide6.QtCore import QTimer
 
-class SWController(QtWidgets.QMainWindow):
+# from PySide6 import QtCore, QtGui, QtWidgets
+from RCSwitch import Ui_ReverbChamberRelaisController
+
+
+class SWController(QMainWindow):
     def __init__(self, sw):
         super(SWController, self).__init__()
-        self.sw=sw
+        self.sw = sw
         # 00: sig -> 40 dB -> term     usefull; safe
         # 01: sig -> TX LF             useful; direkt LF
         # 02: sig -> TX HF             usefull; direkt HF
@@ -83,12 +87,11 @@ class SWController(QtWidgets.QMainWindow):
         self.RxAtt=True
         self.RxPM=True
         self.monitor=False
-        QtWidgets.QMainWindow.__init__(self)
-        self.ui=ui()
         self.setStyleSheet ("""QFrame {color: red;}
                                 QFrame:disabled {color: black;}""")
+        self.ui = Ui_ReverbChamberRelaisController()
         self.ui.setupUi(self)
-        self.ctimer = QtCore.QTimer()
+        self.ctimer = QTimer()
         self.ctimer.start(500)
         #QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.doUpdate)
         self.ctimer.timeout.connect(self.doUpdate)
@@ -302,7 +305,7 @@ class SWController(QtWidgets.QMainWindow):
     def on_AttSwitch_On_toggled(self, state):
         if not self.monitor:
             if (not state) and self.RxLF: # this may be dangerous
-                message = QtWidgets.QMessageBox(self)
+                message = QMessageBox(self)
                 message.setStyleSheet('color: black')
                 message.setText("""
 You are going to remove the attenuation from the
@@ -313,9 +316,9 @@ This may damage your power meter or receiver!
 Do you really want to remove the attenuation?
                                 """)
                 message.setWindowTitle('Warning')
-                message.setIcon(QtWidgets.QMessageBox.Question)
-                message.addButton('No', QtWidgets.QMessageBox.AcceptRole)
-                message.addButton('Yes', QtWidgets.QMessageBox.RejectRole)
+                message.setIcon(QMessageBox.Icon.Question)
+                message.addButton('No', QMessageBox.ButtonRole.AcceptRole)
+                message.addButton('Yes', QMessageBox.ButtonRole.RejectRole)
                 message.exec_()
                 response = message.clickedButton().text()
                 if response != 'Yes':
@@ -392,10 +395,14 @@ def main():
     else:
         sw = None
 
-    app = QtWidgets.QApplication(sys.argv)
+    if not QApplication.instance():
+        app = QApplication(sys.argv)
+    else:
+        app = QApplication.instance()
+
     window = SWController(sw)
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
         
 
 if __name__ == "__main__":
