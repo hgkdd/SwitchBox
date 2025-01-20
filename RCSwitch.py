@@ -24,6 +24,13 @@ class Ui_ReverbChamberRelaisController(object):
         if not ReverbChamberRelaisController.objectName():
             ReverbChamberRelaisController.setObjectName(u"ReverbChamberRelaisController")
         ReverbChamberRelaisController.resize(692, 494)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(ReverbChamberRelaisController.sizePolicy().hasHeightForWidth())
+        ReverbChamberRelaisController.setSizePolicy(sizePolicy)
+        ReverbChamberRelaisController.setMinimumSize(QSize(692, 494))
+        ReverbChamberRelaisController.setMaximumSize(QSize(692, 494))
         ReverbChamberRelaisController.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
         self.centralwidget = QWidget(ReverbChamberRelaisController)
         self.centralwidget.setObjectName(u"centralwidget")
