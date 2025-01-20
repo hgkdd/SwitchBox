@@ -109,8 +109,8 @@ class SWController(QMainWindow):
         self.ui.RxSwitch_LF.toggled.connect(self.on_RxSwitch_LF_toggled)
         self.ui.RxSwitch_HF.toggled.connect(self.on_RxSwitch_HF_toggled)
 
-        self.ui.AttSwitch_On.toggled.connect(self.on_AttSwitch_On_toggled)
-        self.ui.AttSwitch_Off.toggled.connect(self.on_AttSwitch_Off_toggled)
+        self.ui.AttSwitch_On.clicked.connect(self.on_AttSwitch_On_clicked)
+        self.ui.AttSwitch_Off.clicked.connect(self.on_AttSwitch_Off_clicked)
 
         self.ui.RxSwitch_Rec.toggled.connect(self.on_RxSwitch_Rec_toggled)
         self.ui.RxSwitch_PM.toggled.connect(self.on_RxSwitch_PM_toggled)
@@ -321,7 +321,7 @@ class SWController(QMainWindow):
             #print "Switch 3: HF"
         self._rx_logic()
 
-    def on_AttSwitch_Off_toggled(self, state):
+    def on_AttSwitch_Off_clicked(self, state):
         if not self.monitor:  # we triggerd the change
             if state and self.RxLF: # this may be dangerous
                 message = QMessageBox(self)
@@ -338,7 +338,7 @@ Do you really want to remove the attenuation?
                 message.setIcon(QMessageBox.Icon.Question)
                 message.addButton('No', QMessageBox.ButtonRole.AcceptRole)
                 message.addButton('Yes', QMessageBox.ButtonRole.RejectRole)
-                message.exec_()
+                message.exec()
                 response = message.clickedButton().text()
                 if response != 'Yes':
                     self.ui.AttSwitch_On.toggle()  # switch back
@@ -350,7 +350,7 @@ Do you really want to remove the attenuation?
 
         self._rx_logic()
 
-    def on_AttSwitch_On_toggled(self, state):
+    def on_AttSwitch_On_clicked(self, state):
         self.RxAtt = state
         self.ui.conn_amp_direct_20.setEnabled(state)
         self.ui.conn_amp_direct_21.setEnabled(not state)
