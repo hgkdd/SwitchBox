@@ -3,9 +3,9 @@
 import sys
 try:
     import pyvisa
-    virtual=False
+    virtual = False
 except ImportError:
-    virtual=True
+    virtual = True
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PySide6.QtCore import QTimer
