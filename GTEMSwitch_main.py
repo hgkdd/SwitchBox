@@ -29,6 +29,18 @@ class SWController(QMainWindow):
         # QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.doUpdate)
         self.ctimer.timeout.connect(self.doUpdate)
 
+        self.ui.RxSwitch_Term.toggled.connect(self.on_RxSwitch_Term_toggled)
+        self.ui.RxSwitch_GTEM.toggled.connect(self.on_RxSwitch_GTEM_toggled)
+        self.ui.RxSwitch_3G.toggled.connect(self.on_RxSwitch_3G_toggled)
+        self.ui.RxSwitch_30M.toggled.connect(self.on_RxSwitch_30M_toggled)
+
+        self.ui.TxSwitch_Term.toggled.connect(self.on_TxSwitch_Term_toggled)
+        self.ui.TxSwitch_GTEM.toggled.connect(self.on_TxSwitch_GTEM_toggled)
+
+        self.ui.sgSwitch_Direct.toggled.connect(self.on_sgSwitch_Direct_toggled)
+        self.ui.sgSwitch_LF.toggled.connect(self.on_sgSwitch_LF_toggled)
+        self.ui.sgSwitch_HF.toggled.connect(self.on_sgSwitch_HF_toggled)
+
     def doUpdate(self):
         # print 'Pling'
         s = self.sw.query('')
@@ -102,6 +114,7 @@ class SWController(QMainWindow):
     def on_TxSwitch_GTEM_toggled(self, state):
         if state:
             # print "Switch 2: GTEM"
+            # GTEM is OUTPUT --> disable it as INPUT
             self.ui.RxSwitch_Term.click()
             ans = self.query('R2P1')
 
@@ -113,6 +126,7 @@ class SWController(QMainWindow):
     def on_RxSwitch_GTEM_toggled(self, state):
         if state:
             # print "Switch 3: GTEM"
+            # GTEM is INPUT -> Disable it as OUTPUT
             self.ui.TxSwitch_Term.click()
             ans = self.query('R3P0')
 
