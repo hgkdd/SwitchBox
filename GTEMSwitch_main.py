@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
 import sys
-
-try:
-    import pyvisa
-
-    virtual = False
-except ImportError:
-    virtual = True
+import pyvisa
 
 from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QMainWindow, QApplication
 from GTEMSwitch import Ui_GTEMRelaisController
 
+virtual = False
 
 class SWController(QMainWindow):
     def __init__(self, sw):
@@ -149,7 +144,7 @@ class SWController(QMainWindow):
 def main():
     if not virtual:
         try:
-            rm = pyvisa.ResourceManager()
+            rm = pyvisa.ResourceManager('@py')
             sw = rm.open_resource('GPIB::8')
             sw.read_termination = '\n'
             sw.write_termination = '\n'
@@ -157,6 +152,7 @@ def main():
             sw = None
     else:
         sw = None
+    print(sw)
 
     if not QApplication.instance():
         app = QApplication(sys.argv)
