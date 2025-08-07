@@ -152,7 +152,6 @@ def main():
             sw = None
     else:
         sw = None
-    print(sw)
 
     if not QApplication.instance():
         app = QApplication(sys.argv)
